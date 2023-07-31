@@ -7,23 +7,24 @@
 		<dict>
 			<key>assets</key>
 			<array>
+
 				<dict>
 					<key>kind</key>
 					<string>software-package</string>
-					<key>url</key>
-					<string>https://amarsoft7.github.io</string>
-				</dict>
-				<dict>
-					<key>kind</key>
-					<string>display-image</string>
 					<key>url</key>
 					<string>https://amarsoft7.github.io/download/ios-template.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
+					<string>display-image</string>
+					<key>url</key>
+					<string>https://amarsoft7.github.io/ios-template.57*57.png</string>
+				</dict>
+				<dict>
+					<key>kind</key>
 					<string>full-size-image</string>
 					<key>url</key>
-					<string>https://amarsoft7.github.io/download/manifest.plist</string>
+					<string>https://amarsoft7.github.io/ios-template.512*512.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
