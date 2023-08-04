@@ -2,7 +2,7 @@
  * @Author: lxiang
  * @Date: 2023-07-27 09:16:46
  * @LastEditors: lxiang
- * @LastEditTime: 2023-07-31 13:57:23
+ * @LastEditTime: 2023-08-04 15:25:33
  * @description: Modify here please
  * @FilePath: \amarsoft7.github.io\index.html
 -->
@@ -19,11 +19,17 @@
   <body>
     <div>
       <img src="./static/img/background.jpg" alt="" />
-      <h1>应用名：XXX</h1>
       <a
-        href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/manifest.plist"
+        class="pls"
+        href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/pls.plist"
       >
-        立即安装
+        立即安装pls
+      </a>
+      <a
+        class="aps"
+        href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/aps.plist"
+      >
+        立即安装aps
       </a>
     </div>
   </body>
@@ -62,9 +68,10 @@
       transform: translateY(-50%);
     }
     /* a标签放在屏幕中下位置*/
-    a {
+    .pls,
+    .aps {
       position: absolute;
-      bottom: 120px;
+      bottom: 190px;
       left: 0;
       right: 0;
       margin: auto;
@@ -76,6 +83,9 @@
       border-radius: 10px;
       color: #000;
       text-decoration: none;
+    }
+    .aps {
+      bottom: 120px;
     }
   </style>
 </html>
