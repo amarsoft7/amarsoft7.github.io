@@ -2,7 +2,7 @@
  * @Author: lxiang
  * @Date: 2023-07-27 09:16:46
  * @LastEditors: lxiang
- * @LastEditTime: 2023-09-06 11:05:34
+ * @LastEditTime: 2023-09-06 14:05:05
  * @description: Modify here please
  * @FilePath: \amarsoft7.github.io\index.html
 -->
@@ -19,49 +19,61 @@
   <body>
     <div class="download">
       <img src="./static/img/background.jpg" alt="" />
-      <a
-        id="pls"
-        class="pls"
-        href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/pls.plist"
-      >
-        立即安装pls
-      </a>
-      <a
-        id="aps"
-        class="aps"
-        href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/aps.plist"
-      >
-        立即安装aps
-      </a>
+      <div class="grid">
+        <div class="item">
+          <div class="title">PLS</div>
+          <a
+            class="android"
+            href="https://amarsoft7.github.io/download/pls.apk"
+          >
+            <img src="./static/img/os_android_icon.png" alt="" />
+            <span>立即下载</span>
+          </a>
+          <a
+            class="ios"
+            href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/pls.plist"
+          >
+            <img src="./static/img/os_apple_icon.png" alt="" />
+            <span>立即安装</span>
+          </a>
+        </div>
+        <div class="item">
+          <div class="title">APS</div>
+          <a
+            class="android"
+            href="https://amarsoft7.github.io/download/aps.apk"
+          >
+            <img src="./static/img/os_android_icon.png" alt="" />
+            <span>立即下载</span>
+          </a>
+          <a
+            class="ios"
+            href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/aps.plist"
+          >
+            <img src="./static/img/os_apple_icon.png" alt="" />
+            <span>立即安装</span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="version">
-      <div id="system"></div>
-      <div>更新时间：2023-09-06 11:05:34</div>
+      <div id="environment"></div>
+      <div>更新时间：2023-09-06 13:57:46</div>
     </div>
   </body>
 
   <script>
-    const sysSpan = document.getElementById("system");
-    const pls = document.getElementById("pls");
-    const aps = document.getElementById("aps");
+    const environment = document.getElementById("environment");
     // 识别是ios还是安卓系统，并将system设置值
     if (/(android|iphone|ipad)/i.test(navigator.userAgent)) {
       if (/android/i.test(navigator.userAgent)) {
-        sysSpan.innerHTML = "当前Android版本";
-        // 设置a标签的href属性
-        pls.href = "https://amarsoft7.github.io/download/pls.apk";
-        aps.href = "https://amarsoft7.github.io/download/aps.apk";
+        environment.innerHTML = "当前系统环境为：Android";
       } else if (/iphone|ipad/i.test(navigator.userAgent)) {
-        sysSpan.innerHTML = "当前iOS版本";
-        // 设置a标签的href属性
-        pls.href =
-          "itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/pls.plist";
-        aps.href =
-          "itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/aps.plist";
+        environment.innerHTML = "当前系统环境为：iOS";
       }
     } else {
       console.log("无法识别操作系统");
-      sysSpan.innerHTML = "无法识别操作系统";
+      environment.innerHTML = "当前环境无法识别";
     }
   </script>
 
@@ -69,6 +81,10 @@
     * {
       margin: 0;
       padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
     .version {
       position: fixed;
@@ -83,45 +99,47 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    h1 {
-      position: absolute;
-      bottom: 190px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      height: 50px;
-      z-index: 1;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #fff;
+      flex-direction: column;
     }
     img {
       width: 100%;
-      height: auto;
-      position: absolute;
-      top: 33%;
-      transform: translateY(-50%);
     }
-    /* a标签放在屏幕中下位置*/
-    .pls,
-    .aps {
-      position: absolute;
-      bottom: 190px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: 200px;
-      height: 50px;
-      line-height: 50px;
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 14px;
+      width: 90%;
+    }
+    .grid .item {
+      padding: 16px;
+      border-radius: 4px;
+      box-shadow: 0px 0px 3px 0px white;
+      background: #ffffff26;
+    }
+    .grid .title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
       text-align: center;
-      background-color: #fff;
-      border-radius: 10px;
-      color: #000;
-      text-decoration: none;
+      margin-bottom: 10px;
     }
-    .aps {
-      bottom: 120px;
+    .grid img {
+      width: 48px;
+      height: 48px;
+    }
+    .grid span {
+      margin: 0 14px;
+    }
+    .android,
+    .ios {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      color: #fff;
+      margin-top: 20px;
+      background: #f1f0f040;
+      border-radius: 12px;
     }
   </style>
 </html>
