@@ -2,7 +2,7 @@
  * @Author: lxiang
  * @Date: 2023-07-27 09:16:46
  * @LastEditors: lxiang
- * @LastEditTime: 2023-08-18 16:33:55
+ * @LastEditTime: 2023-09-06 11:05:34
  * @description: Modify here please
  * @FilePath: \amarsoft7.github.io\index.html
 -->
@@ -17,32 +17,68 @@
     <title>Amarsoft7</title>
   </head>
   <body>
-    <div>
+    <div class="download">
       <img src="./static/img/background.jpg" alt="" />
       <a
+        id="pls"
         class="pls"
         href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/pls.plist"
       >
         立即安装pls
       </a>
       <a
+        id="aps"
         class="aps"
         href="itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/aps.plist"
       >
         立即安装aps
       </a>
     </div>
+    <div class="version">
+      <div id="system"></div>
+      <div>更新时间：2023-09-06 11:05:34</div>
+    </div>
   </body>
+
+  <script>
+    const sysSpan = document.getElementById("system");
+    const pls = document.getElementById("pls");
+    const aps = document.getElementById("aps");
+    // 识别是ios还是安卓系统，并将system设置值
+    if (/(android|iphone|ipad)/i.test(navigator.userAgent)) {
+      if (/android/i.test(navigator.userAgent)) {
+        sysSpan.innerHTML = "当前Android版本";
+        // 设置a标签的href属性
+        pls.href = "https://amarsoft7.github.io/download/pls.apk";
+        aps.href = "https://amarsoft7.github.io/download/aps.apk";
+      } else if (/iphone|ipad/i.test(navigator.userAgent)) {
+        sysSpan.innerHTML = "当前iOS版本";
+        // 设置a标签的href属性
+        pls.href =
+          "itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/pls.plist";
+        aps.href =
+          "itms-services://?action=download-manifest&url=https://amarsoft7.github.io/download/aps.plist";
+      }
+    } else {
+      console.log("无法识别操作系统");
+      sysSpan.innerHTML = "无法识别操作系统";
+    }
+  </script>
+
   <style>
     * {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
     }
-    div {
+    .version {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 40px;
+    }
+    .download {
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background-color: #1f8bba;
       display: flex;
       justify-content: center;
